@@ -36,7 +36,7 @@ packer.init {
       return require("packer.util").float { border = "rounded" }
     end,
   },
-  max_jobs = 4,
+  max_jobs = 8,
 }
 
 -- Install your plugins here
@@ -53,9 +53,7 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
-
-  -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+-- Colorschemes
   -- use "lunarvim/darkplus.nvim"
   use "rebelot/kanagawa.nvim"
 
@@ -94,6 +92,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+  use "tpope/vim-fugitive"
 
   -- symbols-outline
   use 'simrat39/symbols-outline.nvim'
