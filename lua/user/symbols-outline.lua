@@ -69,5 +69,3 @@ local opts = {
 
 symbols_outline.setup(opts)
 
-local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<leader>s', '<cmd> SymbolsOutline<CR>', opts)

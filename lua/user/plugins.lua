@@ -97,6 +97,9 @@ return packer.startup(function(use)
   -- symbols-outline
   use 'simrat39/symbols-outline.nvim'
 
+  -- which-key
+  use "folke/which-key.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
