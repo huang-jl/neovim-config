@@ -48,19 +48,41 @@ local location = {
 	padding = 0,
 }
 
+local filename = {
+  'filename',
+  file_status = true,
+  path = 1,
+  shorting_target = 60,
+}
+
 -- cool function for progress
-local progress = function()
-	local current_line = vim.fn.line(".")
-	local total_lines = vim.fn.line("$")
-	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
-	local line_ratio = current_line / total_lines
-	local index = math.ceil(line_ratio * #chars)
-	return chars[index]
-end
+-- local progress = function()
+-- 	local current_line = vim.fn.line(".")
+-- 	local total_lines = vim.fn.line("$")
+-- 	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+-- 	local line_ratio = current_line / total_lines
+-- 	local index = math.ceil(line_ratio * #chars)
+-- 	return chars[index]
+-- end
 
 local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
+
+local fn_context = function() 
+  local status_ok, nvim_treesitter = pcall(require, "nvim-treesitter")
+  if not status_ok then
+    return ""
+  end
+  return nvim_treesitter.statusline({
+    indicator_size = 60,
+    type_patterns = {'class', 'function', 'method', 'interface'},
+    transform_fn = function(line, _node) return line:gsub('%s*[%[%(%{]*%s*$', '') end,
+    allow_duplicates = false,
+    separator = ' -> ',
+  })
+end
+
 
 lualine.setup({
 	options = {
@@ -74,11 +96,13 @@ lualine.setup({
 	sections = {
 		lualine_a = { branch, diagnostics },
 		lualine_b = { mode },
-		lualine_c = {},
+		lualine_c = { filename, fn_context },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_y = { location },
-		lualine_z = { progress },
+		lualine_z = { 
+      -- progress
+    },
 	},
 	inactive_sections = {
 		lualine_a = {},
