@@ -79,7 +79,7 @@ local opts = {
 }
 
 local mappings = {
-  ["b"] = {
+  b = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",
   },
@@ -98,7 +98,9 @@ local mappings = {
     h = { "<cmd>Telescope help_tags <cr>", "Help Tags" },
   -- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
   },
-  o = { "<cmd>SymbolsOutline<cr>", "Symbol Outline" },
+  r = { "<cmd>Telescope lsp_references <cr>", "Goto Reference"},
+  i = { "<cmd>Telescope lsp_implementations <cr>", "Goto Implementation"},
+  o = { "<cmd>SymbolsOutline <cr>", "Symbol Outline" },
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
