@@ -33,6 +33,9 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  list = true,
+  listchars = "tab:󱦰 ",
+  autoindent = true,
 }
 
 vim.opt.shortmess:append "c"
@@ -44,3 +47,5 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd('autocmd FileType c setlocal noexpandtab')
+vim.cmd('autocmd FileType cpp setlocal noexpandtab')

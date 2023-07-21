@@ -68,3 +68,7 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Search
 keymap("n", "<leader> ", ':let @/ = ""<CR>', opts)
+
+-- Move buffer
+keymap("n", "]b", ":BufferLineMoveNext<CR>", opts)
+keymap("n", "[b", ":BufferLineMovePrev<CR>", opts)

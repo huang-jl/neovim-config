@@ -100,6 +100,9 @@ return packer.startup(function(use)
   -- which-key
   use "folke/which-key.nvim"
 
+  -- null-ls
+  use "jose-elias-alvarez/null-ls.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

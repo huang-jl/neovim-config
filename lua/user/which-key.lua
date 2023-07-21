@@ -100,6 +100,7 @@ local mappings = {
   },
   r = { "<cmd>Telescope lsp_references <cr>", "Goto Reference"},
   i = { "<cmd>Telescope lsp_implementations <cr>", "Goto Implementation"},
+  t = { "<cmd>Telescope lsp_type_definitions <cr>", "Goto Type Definition" },
   o = { "<cmd>SymbolsOutline <cr>", "Symbol Outline" },
   p = {
     name = "Packer",
@@ -139,7 +140,7 @@ local mappings = {
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     d = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
     w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
