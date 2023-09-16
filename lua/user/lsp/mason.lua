@@ -116,6 +116,7 @@ local servers = {
 	-- "jsonls",
 	-- "yamlls",
   "clangd",
+  "gopls",
 }
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")

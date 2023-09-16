@@ -4,8 +4,16 @@ if not status_ok then
   return
 end
 
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+local formatting = null_ls.builtins.formatting
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+local diagnostics = null_ls.builtins.diagnostics
+
 local sources = {
-  null_ls.builtins.formatting.clang_format.with({
+  formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+  formatting.black.with({ extra_args = { "--fast" } }),
+  formatting.stylua,
+  formatting.clang_format.with({
     extra_args = { "--style", "file" },
   }),
 }
@@ -13,4 +21,7 @@ local sources = {
 null_ls.setup({
   debug = true,
   sources = sources,
+  root_dir = function()
+    return nil
+  end
 })
