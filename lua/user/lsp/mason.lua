@@ -111,7 +111,7 @@ local DEFAULT_SETTINGS = {
 mason.setup(DEFAULT_SETTINGS)
 
 local servers = {
-	-- "pyright",
+	"pyright",
 	-- "bashls",
 	-- "jsonls",
 	-- "yamlls",

@@ -11,7 +11,7 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
   formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-  formatting.black.with({ extra_args = { "--fast" } }),
+  formatting.black.with({ extra_args = { "--fast", "-l", "130" } }),
   formatting.stylua,
   formatting.clang_format.with({
     extra_args = { "--style", "file" },
