@@ -36,6 +36,7 @@ local options = {
   list = true,
   listchars = "tab:󱦰 ",
   autoindent = true,
+  exrc = true,
 }
 
 vim.opt.shortmess:append "c"

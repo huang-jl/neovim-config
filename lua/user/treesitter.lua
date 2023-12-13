@@ -3,6 +3,12 @@ if not status_ok then
   return
 end
 
+
+local status_ok, ts_ctx_cs = pcall(require, "ts_context_commentstring")
+if not status_ok then
+  return
+end
+
 configs.setup {
   ensure_installed = {"c", "rust", "python", "bash", "cpp", "go",
     "html", "javascript", "json", "lua", "markdown", "vim"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -17,8 +23,8 @@ configs.setup {
     additional_vim_regex_highlighting = true,
   },
   indent = { enable = true, disable = { "yaml" } },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
 }
+
+ts_ctx_cs.setup({
+  enable_autocmd = false,
+})

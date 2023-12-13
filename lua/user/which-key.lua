@@ -171,7 +171,8 @@ local mappings = {
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
-
+  ["'"] = { "Marks" },
+  ["\""] = { "Registers" },
 }
 which_key.setup(setup)
 which_key.register(mappings, opts)
