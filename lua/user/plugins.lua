@@ -76,6 +76,7 @@ return packer.startup(function(use)
     run = ":MasonUpdate" -- :MasonUpdate updates registry contents
   }
   use "williamboman/mason-lspconfig.nvim"
+  use 'simrat39/rust-tools.nvim' -- for rust
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
