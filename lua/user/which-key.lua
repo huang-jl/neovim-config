@@ -96,6 +96,8 @@ local mappings = {
     },
     g = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     h = { "<cmd>Telescope help_tags <cr>", "Help Tags" },
+    t = { "<cmd>lua require('telescope-tabs').list_tabs() <cr>", "Find Tabs"},
+    p = { "<cmd>lua require('telescope-tabs').go_to_previous() <cr>", "Go to Previous Tabs"},
   -- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
   },
   r = { "<cmd>Telescope lsp_references <cr>", "Goto Reference"},
