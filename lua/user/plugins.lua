@@ -108,6 +108,8 @@ return packer.startup(function(use)
   -- null-ls
   use "jose-elias-alvarez/null-ls.nvim"
 
+  use "mphe/grayout.vim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

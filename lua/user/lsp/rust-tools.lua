@@ -50,6 +50,20 @@ if not status_ok then
   return
 end
 
+function get_project_rustanalyzer_settings()
+  local handle = io.open(vim.fn.resolve(vim.fn.getcwd() .. '/./.rust-analyzer.json'))
+  if not handle then
+    return {}
+  end
+  local out = handle:read("*a")
+  handle:close()
+  local config = vim.json.decode(out)
+  if type(config) == "table" then
+    return config
+  end
+  return {}
+end
+
 
 rt.setup({
   tools = {
@@ -94,11 +108,21 @@ rt.setup({
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,
     settings = {
-      ['rust-analyzer'] = {
-        cargo = {
-          allFeatures = true,
+      ['rust-analyzer'] = vim.tbl_deep_extend(
+        "force",
+        {
+          -- Defaults (can be overridden by .rust-analyzer.json
+          cargo = {
+            allFeatures = true,
+          },
         },
-      },
+        get_project_rustanalyzer_settings(),
+        {
+          -- Overrides (forces these regardless of what's in .rust-analyzer.json
+          procMacro = { enable = true },
+        }
+      )
+      ,
     },
   }
 })
