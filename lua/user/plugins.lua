@@ -108,7 +108,14 @@ return packer.startup(function(use)
   -- null-ls
   use "jose-elias-alvarez/null-ls.nvim"
 
+  -- grayout for CONFIG_XXX (i.e., kernel config) or MACRO in C/C++
   use "mphe/grayout.vim"
+
+  -- navic for statusline and winbar
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

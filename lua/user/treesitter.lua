@@ -10,8 +10,11 @@ if not status_ok then
 end
 
 configs.setup {
-  ensure_installed = {"c", "rust", "python", "bash", "cpp", "go",
-    "html", "javascript", "json", "lua", "markdown", "vim", "vimdoc"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {
+    "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline",
+    "rust", "python", "bash", "cpp", "go",
+    "html", "javascript", "json",
+  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {

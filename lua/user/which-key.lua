@@ -49,18 +49,20 @@ local setup = {
     align = "left", -- align columns left, center or right
   },
   show_help = true, -- show help message on the command line when the popup is visible
-  triggers = "auto", -- automatically setup triggers
+  triggers = {
+    { "<auto>", mode = "nixsotc" },
+  },
   -- triggers = {"<leader>"} -- or specify a list manually
 }
 
-local opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
+-- local opts = {
+--   mode = "n", -- NORMAL mode
+--   prefix = "<leader>",
+--   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+--   silent = true, -- use `silent` when creating keymaps
+--   noremap = true, -- use `noremap` when creating keymaps
+--   nowait = true, -- use `nowait` when creating keymaps
+-- }
 
 -- local mappings = {
 --   b = {
@@ -168,12 +170,14 @@ local spec = {
   { "<leader>b", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Buffers", nowait = true, remap = false },
   { "<leader>c", "<cmd>Bdelete!<CR>", desc = "Close Buffer", nowait = true, remap = false },
   { "<leader>e", "<cmd>NvimTreeToggle<cr>", hidden = true, nowait = true, remap = false },
+
   { "<leader>f", group = "Telescope", nowait = true, remap = false },
   { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Find files", nowait = true, remap = false },
   { "<leader>fg", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text", nowait = true, remap = false },
   { "<leader>fh", "<cmd>Telescope help_tags <cr>", desc = "Help Tags", nowait = true, remap = false },
   { "<leader>fp", "<cmd>lua require('telescope-tabs').go_to_previous() <cr>", desc = "Go to Previous Tabs", nowait = true, remap = false },
   { "<leader>ft", "<cmd>lua require('telescope-tabs').list_tabs() <cr>", desc = "Find Tabs", nowait = true, remap = false },
+
   { "<leader>g", group = "Git", nowait = true, remap = false },
   { "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer", nowait = true, remap = false },
   { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch", nowait = true, remap = false },
@@ -189,7 +193,15 @@ local spec = {
   { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk", nowait = true, remap = false },
   { "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", desc = "Stage Hunk", nowait = true, remap = false },
   { "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", desc = "Undo Stage Hunk", nowait = true, remap = false },
+  {
+    mode = { "n", "v" },
+    { "<leader>gL", "<cmd>lua get_history_of_current_line()<cr>", desc = "Log of lines", nowait = true, remap = false },
+  },
+
   { "<leader>i", "<cmd>Telescope lsp_implementations <cr>", desc = "Goto Implementation", nowait = true, remap = false },
+  { "<leader>r", "<cmd>Telescope lsp_references <cr>", desc = "Goto Reference", nowait = true, remap = false },
+  { "<leader>t", "<cmd>Telescope lsp_type_definitions <cr>", desc = "Goto Type Definition", nowait = true, remap = false },
+
   { "<leader>l", group = "LSP", nowait = true, remap = false },
   { "<leader>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info", nowait = true, remap = false },
   { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false },
@@ -206,14 +218,16 @@ local spec = {
   { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false },
   { "<leader>lg", "<cmd>GrayoutUpdate<cr>", desc = "Update grayout", nowait = true, remap = false },
   { "<leader>o", "<cmd>SymbolsOutline <cr>", desc = "Symbol Outline", nowait = true, remap = false },
+
   { "<leader>p", group = "Packer", nowait = true, remap = false },
   { "<leader>pS", "<cmd>PackerStatus<cr>", desc = "Status", nowait = true, remap = false },
   { "<leader>pc", "<cmd>PackerCompile<cr>", desc = "Compile", nowait = true, remap = false },
   { "<leader>pi", "<cmd>PackerInstall<cr>", desc = "Install", nowait = true, remap = false },
   { "<leader>ps", "<cmd>PackerSync<cr>", desc = "Sync", nowait = true, remap = false },
   { "<leader>pu", "<cmd>PackerUpdate<cr>", desc = "Update", nowait = true, remap = false },
+
   { "<leader>q", "<cmd>q!<CR>", desc = "Quit", nowait = true, remap = false },
-  { "<leader>r", "<cmd>Telescope lsp_references <cr>", desc = "Goto Reference", nowait = true, remap = false },
+
   { "<leader>s", group = "Search", nowait = true, remap = false },
   { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },
   { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages", nowait = true, remap = false },
@@ -223,8 +237,11 @@ local spec = {
   { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Find Help", nowait = true, remap = false },
   { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
   { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
-  { "<leader>t", "<cmd>Telescope lsp_type_definitions <cr>", desc = "Goto Type Definition", nowait = true, remap = false },
   { "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
+
+  -- { "tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Toggle lazygit term", nowait = true, remap = false },
+  { "th", "<cmd>lua _HTOP_TOGGLE()<CR>", desc = "Toggle htop term", nowait = true, remap = false },
+  -- { "tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", desc = "Toggle python term", nowait = true, remap = false },
 }
 
 which_key.setup(setup)
