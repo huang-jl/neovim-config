@@ -44,7 +44,6 @@ local lazygit = Terminal:new({
   hidden = true,
   on_create = function(term)
     vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<Esc>")
-    vim.api.nvim_buf_set_keymap(term.bufnr, "t", "q", "<cmd>close<CR>", {noremap = true, silent = true})
   end,
 })
 

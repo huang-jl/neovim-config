@@ -40,3 +40,38 @@ vim.cmd([[
 
   command! DiffHistorycall call s:view_git_history()
 ]])
+
+-- Function to determine the current mode and get the selected range if in visual mode
+local function get_line_range()
+  -- Get the current mode
+  local mode = vim.fn.mode()
+  
+  -- Check if the current mode is visual mode (either 'v' for visual mode or 'V' for visual line mode)
+  if mode == 'v' or mode == 'V' then
+    -- Get the start and end positions of the visual selection
+    local start_pos = vim.fn.getpos("v")
+    local end_pos = vim.fn.getpos(".")
+
+    -- Extract the line numbers
+    local start_line = start_pos[2]
+    local end_line = end_pos[2]
+
+    vim.print(start_line, end_line)
+
+    -- Return the line numbers
+    return start_line, end_line
+  else
+    -- Return nil if not in visual mode
+    local line_number = vim.fn.line('.')
+    return line_number, line_number
+  end
+end
+
+function get_history_of_current_line()
+  local start_line, end_line = get_line_range()
+  local filename = vim.api.nvim_buf_get_name(0)
+  vim.cmd(string.format(
+    [[ Git log -L %d,%d:%s ]],
+      start_line, end_line, filename
+  ))
+end
