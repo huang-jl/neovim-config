@@ -50,15 +50,15 @@ gitsigns.setup {
     end, {expr=true})
 
     vim.keymap.set("n", "[c", function()
-      if vim.wo.diff then return ']c' end
+      if vim.wo.diff then return '[c' end
       vim.schedule(function() gs.prev_hunk() end)
       return '<Ignore>'
     end, {expr=true})
 
     
-    vim.keymap.set("n", "<leader>hp", gs.preview_hunk, {})
-    vim.keymap.set("n", "<leader>hb", function() gs.blame_line({full=true}) end, {})
-    vim.keymap.set("n", "<leader>hd", gs.diffthis, {})
+    -- vim.keymap.set("n", "<leader>hp", gs.preview_hunk, {})
+    -- vim.keymap.set("n", "<leader>hb", function() gs.blame_line({full=true}) end, {})
+    -- vim.keymap.set("n", "<leader>hd", gs.diffthis, {})
 
   end
     

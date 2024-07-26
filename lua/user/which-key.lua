@@ -51,6 +51,7 @@ local setup = {
   show_help = true, -- show help message on the command line when the popup is visible
   triggers = {
     { "<auto>", mode = "nixsotc" },
+    { "t", mode = "n" },
   },
   -- triggers = {"<leader>"} -- or specify a list manually
 }
@@ -219,13 +220,6 @@ local spec = {
   { "<leader>lg", "<cmd>GrayoutUpdate<cr>", desc = "Update grayout", nowait = true, remap = false },
   { "<leader>o", "<cmd>SymbolsOutline <cr>", desc = "Symbol Outline", nowait = true, remap = false },
 
-  { "<leader>p", group = "Packer", nowait = true, remap = false },
-  { "<leader>pS", "<cmd>PackerStatus<cr>", desc = "Status", nowait = true, remap = false },
-  { "<leader>pc", "<cmd>PackerCompile<cr>", desc = "Compile", nowait = true, remap = false },
-  { "<leader>pi", "<cmd>PackerInstall<cr>", desc = "Install", nowait = true, remap = false },
-  { "<leader>ps", "<cmd>PackerSync<cr>", desc = "Sync", nowait = true, remap = false },
-  { "<leader>pu", "<cmd>PackerUpdate<cr>", desc = "Update", nowait = true, remap = false },
-
   { "<leader>q", "<cmd>q!<CR>", desc = "Quit", nowait = true, remap = false },
 
   { "<leader>s", group = "Search", nowait = true, remap = false },
@@ -239,9 +233,8 @@ local spec = {
   { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
   { "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
 
-  -- { "tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Toggle lazygit term", nowait = true, remap = false },
   { "th", "<cmd>lua _HTOP_TOGGLE()<CR>", desc = "Toggle htop term", nowait = true, remap = false },
-  -- { "tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", desc = "Toggle python term", nowait = true, remap = false },
+  { "tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", desc = "Toggle python term", nowait = true, remap = false },
 }
 
 which_key.setup(setup)
