@@ -174,7 +174,8 @@ local spec = {
 
   { "<leader>f", group = "Telescope", nowait = true, remap = false },
   { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Find files", nowait = true, remap = false },
-  { "<leader>fg", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text", nowait = true, remap = false },
+  { "<leader>fg", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", desc = "Find Text", nowait = true, remap = false },
+  { "<leader>fc", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({layout_strategy = 'vertical', layout_config = { preview_cutoff = 1 }}) <cr>", desc = "Fuzzy in current buffer", nowait = true, remap = false },
   { "<leader>fh", "<cmd>Telescope help_tags <cr>", desc = "Help Tags", nowait = true, remap = false },
   { "<leader>fp", "<cmd>lua require('telescope-tabs').go_to_previous() <cr>", desc = "Go to Previous Tabs", nowait = true, remap = false },
   { "<leader>ft", "<cmd>lua require('telescope-tabs').list_tabs() <cr>", desc = "Find Tabs", nowait = true, remap = false },

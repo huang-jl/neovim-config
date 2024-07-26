@@ -3,6 +3,11 @@ if not status_ok then
   return
 end
 
+local status_ok, lga_actions = pcall(require, "telescope-live-grep-args.actions")
+if not status_ok then
+  return
+end
+
 local actions = require "telescope.actions"
 
 telescope.setup {
@@ -87,6 +92,23 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
+    live_grep_args = {
+      auto_quoting = true, -- enable/disable auto-quoting
+      -- define mappings, e.g.
+      mappings = { -- extend mappings
+        i = {
+          ["<C-k>"] = lga_actions.quote_prompt(),
+          ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+          ["<C-t>"] = lga_actions.quote_prompt({ postfix = " --type " }),
+          -- freeze the current list and start a fuzzy search in the frozen list
+          ["<C-space>"] = actions.to_fuzzy_refine,
+        },
+      },
+      -- ... also accepts theme settings, for example:
+      theme = "ivy", -- use dropdown theme
+      -- theme = { }, -- use own theme spec
+      -- layout_config = { mirror=true }, -- mirror preview pane
+    },
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -94,3 +116,6 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+-- don't forget to load the extension
+telescope.load_extension("live_grep_args")
