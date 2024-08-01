@@ -121,7 +121,17 @@ lualine.setup({
 	sections = {
 		lualine_a = { branch, diagnostics },
 		lualine_b = { mode },
-		lualine_c = { filename },
+		lualine_c = { filename,
+      {
+        function()
+          return navic.get_location()
+        end,
+        cond = function()
+          return navic.is_available()
+        end,
+        separator = "",
+      },
+    },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_y = { location },
@@ -138,16 +148,16 @@ lualine.setup({
 		lualine_z = {},
 	},
   winbar = {
-    lualine_c = {
-      {
-        function()
-          return navic.get_location()
-        end,
-        cond = function()
-          return navic.is_available()
-        end
-      },
-    }
+    -- lualine_c = {
+    --   {
+    --     function()
+    --       return navic.get_location()
+    --     end,
+    --     cond = function()
+    --       return navic.is_available()
+    --     end
+    --   },
+    -- }
   },
 	tabline = {},
 	extensions = {
