@@ -218,7 +218,6 @@ local spec = {
   { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = true, remap = false },
   { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols", nowait = true, remap = false },
   { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false },
-  { "<leader>lg", "<cmd>GrayoutUpdate<cr>", desc = "Update grayout", nowait = true, remap = false },
   { "<leader>o", "<cmd>SymbolsOutline <cr>", desc = "Symbol Outline", nowait = true, remap = false },
 
   { "<leader>q", "<cmd>q!<CR>", desc = "Quit", nowait = true, remap = false },

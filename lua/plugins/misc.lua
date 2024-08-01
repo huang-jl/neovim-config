@@ -8,9 +8,6 @@ return {
   -- null-ls
   { "jose-elias-alvarez/null-ls.nvim" },
 
-  -- grayout for CONFIG_XXX (i.e., kernel config) or MACRO in C/C++
-  { "mphe/grayout.vim" },
-
   -- navic for statusline and winbar
   {
     "SmiteshP/nvim-navic",
