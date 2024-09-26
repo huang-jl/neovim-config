@@ -97,7 +97,7 @@ telescope.setup {
       -- define mappings, e.g.
       mappings = { -- extend mappings
         i = {
-          ["<C-k>"] = lga_actions.quote_prompt(),
+          ["<C-q>"] = lga_actions.quote_prompt(),
           ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
           ["<C-t>"] = lga_actions.quote_prompt({ postfix = " --type " }),
           -- freeze the current list and start a fuzzy search in the frozen list
