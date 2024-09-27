@@ -117,7 +117,7 @@ local servers = {
 	-- "yamlls",
   "clangd",
   "gopls",
-  -- "rust_analyzer",
+  "rust_analyzer",
 }
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
