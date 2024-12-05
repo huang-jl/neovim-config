@@ -128,10 +128,17 @@ end
 
 local opts = {}
 
+capabilities = require("user.lsp.handlers").capabilities
+-- setup for fold
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+}
+
 for _, server in pairs(servers) do
 	opts = {
 		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
+		capabilities = capabilities,
 	}
 
 	server = vim.split(server, "@")[1]

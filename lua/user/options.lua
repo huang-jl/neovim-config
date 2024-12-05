@@ -37,6 +37,11 @@ local options = {
   listchars = "tab:󱦰 ",
   autoindent = true,
   exrc = true,
+  foldenable = true,
+  foldlevel = 99,
+  foldlevelstart = 99,
+  foldcolumn = '0',
+  fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
 }
 
 vim.opt.shortmess:append "c"

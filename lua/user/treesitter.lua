@@ -31,3 +31,5 @@ configs.setup {
 ts_ctx_cs.setup({
   enable_autocmd = false,
 })
+-- setup fold expr
+-- vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
