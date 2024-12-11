@@ -218,7 +218,10 @@ local spec = {
   { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = true, remap = false },
   { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols", nowait = true, remap = false },
   { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false },
-  { "<leader>o", "<cmd>SymbolsOutline <cr>", desc = "Symbol Outline", nowait = true, remap = false },
+  { "<leader>lci", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "Incoming Calls", nowait = true, remap = false },
+  { "<leader>lco", "<cmd>Telescope lsp_outgoing_calls<cr>", desc = "Outgoing Calls", nowait = true, remap = false },
+
+  { "<leader>o", "<cmd>Outline <cr>", desc = "Toggle Symbol Outline", nowait = true, remap = false },
 
   { "<leader>q", "<cmd>q!<CR>", desc = "Quit", nowait = true, remap = false },
 
@@ -232,6 +235,8 @@ local spec = {
   { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
   { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
   { "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
+
+  { "<leader>j", "<cmd>Telescope jumplist<CR>", desc = "Save", nowait = true, remap = false },
 
   { "th", "<cmd>lua _HTOP_TOGGLE()<CR>", desc = "Toggle htop term", nowait = true, remap = false },
   { "tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", desc = "Toggle python term", nowait = true, remap = false },

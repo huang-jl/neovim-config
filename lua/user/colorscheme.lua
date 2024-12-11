@@ -20,4 +20,17 @@
 -- endtry
 -- ]]
 
+local status_ok, tokyonight = pcall(require, "tokyonight")
+if not status_ok then
+  return
+end
+
+tokyonight.setup({
+  style = "moon",
+  on_highlights = function(hl, c)
+    hl.WinSeparator = {
+      fg = "#636da6",
+    }
+  end,
+})
 vim.cmd[[colorscheme tokyonight-moon]]

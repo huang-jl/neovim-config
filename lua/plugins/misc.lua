@@ -1,6 +1,6 @@
 return {
   -- symbols-outline
-  { 'simrat39/symbols-outline.nvim' },
+  { 'hedyhli/outline.nvim' },
 
   -- which-key
   { "folke/which-key.nvim" },
@@ -15,8 +15,12 @@ return {
   },
 
   -- lualine: statusline + winbar
-  { 'nvim-lualine/lualine.nvim'},
+  { 'nvim-lualine/lualine.nvim' },
 
   -- toggleterm: float terminal
-  { "akinsho/toggleterm.nvim"},
+  { "akinsho/toggleterm.nvim" },
+
+  { "folke/flash.nvim" },
+
+  { "lukas-reineke/indent-blankline.nvim" },
 }
