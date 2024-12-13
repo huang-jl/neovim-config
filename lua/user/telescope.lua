@@ -9,6 +9,14 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local sorters = require "telescope.sorters"
+local fzf_opts = {
+  fuzzy = true,                    -- false will only do exact matching
+  override_generic_sorter = true,  -- override the generic sorter
+  override_file_sorter = true,     -- override the file sorter
+  case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                   -- the default case_mode is "smart_case"
+}
 
 telescope.setup {
   defaults = {
@@ -47,6 +55,7 @@ telescope.setup {
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+        ["<C-space>"] = actions.to_fuzzy_refine,
       },
 
       n = {
@@ -90,6 +99,9 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
+    lsp_dynamic_workspace_symbols = {
+      sorter = telescope.extensions.fzf.native_fzf_sorter(fzf_opts)
+    }
   },
   extensions = {
     live_grep_args = {
@@ -114,8 +126,10 @@ telescope.setup {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
+    fzf = fzf_opts,
   },
 }
 
 -- don't forget to load the extension
 telescope.load_extension("live_grep_args")
+telescope.load_extension('fzf')
