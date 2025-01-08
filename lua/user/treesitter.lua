@@ -25,7 +25,7 @@ configs.setup {
     disable = { "c", "cpp" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = true,
   },
-  indent = { enable = true, disable = { "yaml" } },
+  indent = { enable = false, disable = { "yaml" } },
 }
 
 ts_ctx_cs.setup({
