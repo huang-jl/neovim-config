@@ -5,4 +5,5 @@ return {
     build = ":TSUpdate",
   },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
+  { "nvim-treesitter/nvim-treesitter-context" },
 }
