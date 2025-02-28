@@ -28,6 +28,7 @@ local highlight = {
 ibl.setup({
   indent = {
     char = '▏',
+    tab_char = '▏',
     highlight = highlight,
   },
   scope = {
