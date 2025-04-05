@@ -5,8 +5,8 @@ return {
   -- which-key
   { "folke/which-key.nvim" },
 
-  -- null-ls
-  { "jose-elias-alvarez/null-ls.nvim" },
+  -- none-ls
+  { "nvimtools/none-ls.nvim" },
 
   -- navic for statusline and winbar
   {
