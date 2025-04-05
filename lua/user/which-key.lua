@@ -172,6 +172,12 @@ local spec = {
   { "<leader>c", "<cmd>Bdelete!<CR>", desc = "Close Buffer", nowait = true, remap = false },
   { "<leader>e", "<cmd>NvimTreeToggle<cr>", hidden = true, nowait = true, remap = false },
 
+  { "<leader>d", group = "Diff texts", nowait = true, remap = false },
+  { "<leader>dt", "<cmd>windo diffthis<CR>", desc = "Enable diff in current window", nowait = true, remap = false },
+  { "<leader>do", "<cmd>windo diffoff<CR>", desc = "Disable diff in current window", nowait = true, remap = false },
+  { "<leader>db", "<cmd>enew<CR>", desc = "Create a new buffer", nowait = true, remap = false },
+  { "<leader>dv", "<cmd>vnew<CR>", desc = "Create a new buffer in vertical split window", nowait = true, remap = false },
+
   { "<leader>f", group = "Telescope", nowait = true, remap = false },
   { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Find files", nowait = true, remap = false },
   { "<leader>fg", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", desc = "Find Text", nowait = true, remap = false },
@@ -209,7 +215,10 @@ local spec = {
   { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false },
   { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
   { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics", nowait = true, remap = false },
-  { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format", nowait = true, remap = false },
+  {
+    mode = { "n", "v" },
+    {"<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format", nowait = true, remap = false },
+  },
   { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info", nowait = true, remap = false },
   { "<leader>lj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", desc = "Next Diagnostic", nowait = true, remap = false },
   { "<leader>lk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic", nowait = true, remap = false },

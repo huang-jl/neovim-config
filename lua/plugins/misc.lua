@@ -20,7 +20,11 @@ return {
   -- toggleterm: float terminal
   { "akinsho/toggleterm.nvim" },
 
-  { "folke/flash.nvim" },
-
   { "lukas-reineke/indent-blankline.nvim" },
+
+  { "stevearc/profile.nvim" },
+
+  -- we choose leap instead of flash
+  -- as flash is slow when opening large files (e.g., over 30 MBs)
+  { "ggandor/leap.nvim" },
 }

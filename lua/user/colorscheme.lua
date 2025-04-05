@@ -31,6 +31,16 @@ tokyonight.setup({
     hl.WinSeparator = {
       fg = "#636da6",
     }
+    -- Add special color to diff
+    hl.DiffText = {
+      bg = c.red,
+    }
+    hl.DiffChange = {
+      bg = c.blue7,
+    }
   end,
+  -- on_colors = function(color)
+  --   color.diff.text = color.red
+  -- end,
 })
 vim.cmd[[colorscheme tokyonight-moon]]

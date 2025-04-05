@@ -22,8 +22,15 @@ configs.setup {
   },
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { "c", "cpp" }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
+    -- disable = { "c", "cpp" }, -- list of language that will be disabled
+    disable = function(lang, buf)
+        local max_filesize = 100 * 1024 -- 100 KB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+            return true
+        end
+    end,
+    additional_vim_regex_highlighting = false,
   },
   indent = { enable = false, disable = { "yaml" } },
 }
@@ -31,6 +38,14 @@ configs.setup {
 ts_ctx_cs.setup({
   enable_autocmd = false,
 })
+
+local get_option = vim.filetype.get_option
+vim.filetype.get_option = function(filetype, option)
+  return option == "commentstring"
+    and require("ts_context_commentstring.internal").calculate_commentstring()
+    or get_option(filetype, option)
+end
+
 -- setup fold expr
 -- vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 --
