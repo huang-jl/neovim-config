@@ -249,6 +249,7 @@ local spec = {
 
   { "th", "<cmd>lua _HTOP_TOGGLE()<CR>", desc = "Toggle htop term", nowait = true, remap = false },
   { "tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", desc = "Toggle python term", nowait = true, remap = false },
+  { "ts", "<cmd>TermSelect<CR>", desc = "Toggleterm Select", nowait = true, remap = false },
 }
 
 which_key.setup(setup)

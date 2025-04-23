@@ -118,7 +118,6 @@ local servers = {
   "clangd",
   "gopls",
   "rust_analyzer",
-  "black",
 }
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")

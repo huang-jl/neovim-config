@@ -23,6 +23,7 @@ end
 -- Define the file path and size limit (in bytes)
 local filepath = vim.lsp.get_log_path()
 local size_limit = 128 * 1024 * 1024 -- 128 MB
+-- vim.lsp.log.set_level("info")
 
 -- Call the function to check and rotate the file
 check_and_rotate_file(filepath, size_limit)

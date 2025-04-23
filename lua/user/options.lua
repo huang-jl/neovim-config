@@ -43,6 +43,7 @@ local options = {
   foldcolumn = '0',
   fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
   jumpoptions = 'stack',
+  guicursor = 'n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block-TermCursor'
 }
 
 vim.opt.shortmess:append "c"
