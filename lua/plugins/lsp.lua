@@ -6,8 +6,8 @@ return {
       -- disable a keymap
       keys[#keys + 1] = { "K", false }
       keys[#keys + 1] = { "<c-k>", false }
-      keys[#keys + 1] = { "gh", vim.lsp.buf.hover }
-      keys[#keys + 1] = { "<c-p>", vim.lsp.buf.signature_help, mode = "i" }
+      keys[#keys + 1] = { "gh", vim.lsp.buf.hover, desc = "Hover" }
+      keys[#keys + 1] = { "<c-p>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" }
     end,
   },
   {
@@ -49,6 +49,18 @@ return {
           window = {
             border = "rounded",
           },
+        },
+      },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        clangd = {
+          root_dir = function(_)
+            return vim.fn.getcwd()
+          end,
         },
       },
     },
