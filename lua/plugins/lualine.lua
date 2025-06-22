@@ -1,0 +1,23 @@
+-- if you want to enable top winbar to show context
+return {
+  --   {
+  --     "nvim-lualine/lualine.nvim",
+  --     opts = {
+  --       winbar = {
+  --         lualine_c = {
+  --           {
+  --             function()
+  --               local navic = require("nvim-navic")
+  --               local res = navic.is_available() and navic.get_location()
+  --               if res == nil or res == "" then
+  --                 return " "
+  --               else
+  --                 return res
+  --               end
+  --             end,
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+}
