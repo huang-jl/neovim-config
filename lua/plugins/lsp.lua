@@ -8,6 +8,7 @@ return {
       keys[#keys + 1] = { "<c-k>", false }
       keys[#keys + 1] = { "gh", vim.lsp.buf.hover, desc = "Hover" }
       keys[#keys + 1] = { "<c-p>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" }
+      keys[#keys + 1] = { "gl", vim.diagnostic.open_float, mode = "n", desc = "Line Diagnostics" }
     end,
   },
   {
@@ -32,6 +33,8 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       diagnostics = {
+        -- disable inline diagnostics
+        virtual_text = false,
         float = {
           border = "rounded",
         },
