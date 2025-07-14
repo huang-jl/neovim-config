@@ -20,6 +20,9 @@ vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", { silent = true, noremap = true 
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", { silent = true, noremap = true })
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", { silent = true, noremap = true })
 
+-- add keymap to show LazyRoot
+vim.keymap.set("n", "<leader><space>", ":LazyRoot<CR>", { desc = "LazyRoot" })
+
 -- terminal
 local last_used_term = nil
 vim.keymap.set("n", [[<c-\>]], function()
