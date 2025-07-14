@@ -55,11 +55,13 @@ return {
         },
       },
       keymap = {
+        preset = "enter",
         ["<C-k>"] = { "select_prev", "fallback_to_mappings" },
         ["<C-j>"] = { "select_next", "fallback_to_mappings" },
         ["<C-p>"] = { "fallback" },
         ["<C-n>"] = { "fallback" },
         ["<C-m>"] = { "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
       },
     },
   },
