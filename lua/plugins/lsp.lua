@@ -1,14 +1,14 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = function(_, opts)
+    opts = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- disable a keymap
-      keys[#keys + 1] = { "K", false }
-      keys[#keys + 1] = { "<c-k>", false }
       keys[#keys + 1] = { "gh", vim.lsp.buf.hover, desc = "Hover" }
       keys[#keys + 1] = { "<c-p>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" }
       keys[#keys + 1] = { "gl", vim.diagnostic.open_float, mode = "n", desc = "Line Diagnostics" }
+      keys[#keys + 1] = { "K", false, mode = { "n" } }
+      keys[#keys + 1] = { "<c-k>", false, mode = { "i" } }
     end,
   },
   {
@@ -53,6 +53,13 @@ return {
             border = "rounded",
           },
         },
+      },
+      keymap = {
+        ["<C-k>"] = { "select_prev", "fallback_to_mappings" },
+        ["<C-j>"] = { "select_next", "fallback_to_mappings" },
+        ["<C-p>"] = { "fallback" },
+        ["<C-n>"] = { "fallback" },
+        ["<C-m>"] = { "fallback" },
       },
     },
   },
