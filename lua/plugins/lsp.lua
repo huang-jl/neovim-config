@@ -60,8 +60,7 @@ return {
         ["<C-j>"] = { "select_next", "fallback_to_mappings" },
         ["<C-p>"] = { "fallback" },
         ["<C-n>"] = { "fallback" },
-        ["<C-m>"] = { "fallback" },
-        ["<CR>"] = { "accept", "fallback" },
+        ["<CR>"] = { "select_and_accept", "fallback" },
       },
     },
   },
@@ -73,6 +72,12 @@ return {
           root_dir = function(_)
             return vim.fn.getcwd()
           end,
+        },
+        ruff_lsp = {
+          mason = false,
+        },
+        ruff = {
+          mason = false,
         },
       },
     },
