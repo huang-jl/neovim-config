@@ -73,12 +73,6 @@ return {
             return vim.fn.getcwd()
           end,
         },
-        ruff_lsp = {
-          mason = false,
-        },
-        ruff = {
-          mason = false,
-        },
       },
     },
   },
