@@ -37,6 +37,7 @@ end
 return {
   {
     "sindrets/diffview.nvim",
+    cmd = "DiffviewOpen",
     keys = {
       {
         "<leader>gD",

@@ -9,7 +9,7 @@ return {
         },
         ruff = {
           mason = false,
-          enabled = false,
+          enabled = true,
         },
       },
     },
