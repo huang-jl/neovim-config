@@ -3,6 +3,10 @@ return {
     "folke/snacks.nvim",
     opts = {
       picker = {
+        sources = {
+          -- show hidden files by default in explorer
+          explorer = { hidden = true },
+        },
         win = {
           -- input window
           input = {
